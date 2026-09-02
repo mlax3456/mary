@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday MARY</title>
+<style>
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at center, #300000 0%, #100000 50%, #000 100%);
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+/* شبكة العنكبوت الواضحة */
+.web {
+    position: fixed;
+    width: 650px;
+    height: 650px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.35;
+    pointer-events: none;
+}
+.web::before,
+.web::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+}
+.web::before {
+    background:
+        repeating-radial-gradient(
+            circle,
+            transparent 0px,
+            transparent 38px,
+            #aaa 40px,
+            transparent 42px
+        );
+}
+.web::after {
+    background:
+        conic-gradient(
+            from 0deg,
+            transparent 0deg 10deg,
+            #aaa 10deg 11deg,
+            transparent 11deg 20deg,
+            #aaa 20deg 21deg,
+            transparent 21deg 30deg,
+            #aaa 30deg 31deg,
+            transparent 31deg 40deg,
+            #aaa 40deg 41deg,
+            transparent 41deg 50deg,
+            #aaa 50deg 51deg,
+            transparent 51deg 60deg,
+            #aaa 60deg 61deg,
+            transparent 61deg 70deg,
+            #aaa 70deg 71deg,
+            transparent 71deg 80deg,
+            #aaa 80deg 81deg,
+            transparent 81deg 90deg,
+            #aaa 90deg 91deg,
+            transparent 91deg 100deg,
+            #aaa 100deg 101deg,
+            transparent 101deg 110deg,
+            #aaa 110deg 111deg,
+            transparent 111deg 120deg,
+            #aaa 120deg 121deg,
+            transparent 121deg 130deg,
+            #aaa 130deg 131deg,
+            transparent 131deg 140deg,
+            #aaa 140deg 141deg,
+            transparent 141deg 150deg,
+            #aaa 150deg 151deg,
+            transparent 151deg 160deg,
+            #aaa 160deg 161deg,
+            transparent 161deg 170deg,
+            #aaa 170deg 171deg,
+            transparent 171deg 180deg,
+            #aaa 180deg 181deg,
+            transparent 181deg 190deg,
+            #aaa 190deg 191deg,
+            transparent 191deg 200deg,
+            #aaa 200deg 201deg,
+            transparent 201deg 210deg,
+            #aaa 210deg 211deg,
+            transparent 211deg 220deg,
+            #aaa 220deg 221deg,
+            transparent 221deg 230deg,
+            #aaa 230deg 231deg,
+            transparent 231deg 240deg,
+            #aaa 240deg 241deg,
+            transparent 241deg 250deg,
+            #aaa 250deg 251deg,
+            transparent 251deg 260deg,
+            #aaa 260deg 261deg,
+            transparent 261deg 270deg,
+            #aaa 270deg 271deg,
+            transparent 271deg 280deg,
+            #aaa 280deg 281deg,
+            transparent 281deg 290deg,
+            #aaa 290deg 291deg,
+            transparent 291deg 300deg,
+            #aaa 300deg 301deg,
+            transparent 301deg 310deg,
+            #aaa 310deg 311deg,
+            transparent 311deg 320deg,
+            #aaa 320deg 321deg,
+            transparent 321deg 330deg,
+            #aaa 330deg 331deg,
+            transparent 331deg 340deg,
+            #aaa 340deg 341deg,
+            transparent 341deg 350deg,
+            #aaa 350deg 351deg,
+            transparent 351deg 360deg
+        );
+}
+/* الشاشة */
+.screen {
+    width: 100%;
+    max-width: 1000px;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 5;
+}
+/* العنوان */
+h1 {
+    font-size: 52px;
+    letter-spacing: 7px;
+    margin-bottom: 35px;
+    text-shadow:
+        0 0 8px white,
+        0 0 20px red,
+        0 0 35px red;
+}
+/* العنكبوت */
+.spider {
+    font-size: 55px;
+    margin-bottom: 5px;
+    animation: swing 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px red);
+}
+@keyframes swing {
+    0%,100% {
+        transform: rotate(-6deg);
+    }
+    50% {
+        transform: rotate(6deg);
+    }
+}
+/* الكيكة */
+.cake {
+    position: relative;
+    width: 360px;
+    height: 270px;
+    margin: auto;
+}
+/* الطبقة العلوية */
+.top-cake {
+    position: absolute;
+    width: 260px;
+    height: 80px;
+    background: linear-gradient(#555, #151515);
+    left: 50px;
+    top: 60px;
+    border-radius: 15px 15px 8px 8px;
+    border: 2px solid #900000;
+    box-shadow:
+        0 0 15px #900000,
+        0 10px 25px #000;
+}
+/* الطبقة السفلية */
+.bottom-cake {
+    position: absolute;
+    width: 340px;
+    height: 100px;
+    background: linear-gradient(#444, #111);
+    left: 10px;
+    top: 130px;
+    border-radius: 15px 15px 20px 20px;
+    border: 2px solid #900000;
+    box-shadow:
+        0 0 18px #900000,
+        0 15px 30px #000;
+}
+/* الاسم */
+.name {
+    position: absolute;
+    top: 155px;
+    width: 100%;
+    z-index: 5;
+    font-size: 42px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-shadow:
+        0 0 8px white,
+        0 0 20px red;
+}
+/* الشموع */
+.candle {
+    position: absolute;
+    width: 18px;
+    height: 65px;
+    background: linear-gradient(90deg, #777, #eee, #777);
+    border-radius: 5px;
+    top: 5px;
+    z-index: 10;
+}
+.candle1 { left: 85px; }
+.candle2 { left: 135px; }
+.candle3 { left: 180px; }
+.candle4 { left: 225px; }
+.candle5 { left: 275px; }
+/* اللهب */
+.flame {
+    position: absolute;
+    width: 18px;
+    height: 27px;
+    background: white;
+    border-radius: 50%;
+    top: -25px;
+    left: 0;
+    box-shadow:
+        0 0 10px white,
+        0 0 20px red,
+        0 0 30px red;
+    animation: flame 0.6s infinite alternate;
+}
+@keyframes flame {
+    from {
+        transform: scale(0.85);
+    }
+    to {
+        transform: scale(1.15);
+    }
+}
+/* الرسالة */
+.message {
+    margin-top: 25px;
+    font-size: 21px;
+    color: #ddd;
+    text-shadow: 0 0 8px red;
+}
+/* زر الموسيقى */
+#musicBtn {
+    margin-top: 25px;
+    padding: 14px 32px;
+    border: 1px solid #d00000;
+    border-radius: 30px;
+    background: #120000;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 0 0 12px #800000;
+    transition: 0.3s;
+}
+#musicBtn:hover {
+    background: #750000;
+    transform: scale(1.07);
+}
+</style>
+</head>
+<body>
+<!-- شبكة العنكبوت -->
+<div class="web"></div>
+<div class="screen">
+    <div class="spider">🕷️</div>
+    <h1 id="title"></h1>
+    <div class="cake">
+        <div class="candle candle1">
+            <div class="flame"></div>
+        </div>
+        <div class="candle candle2">
+            <div class="flame"></div>
+        </div>
+        <div class="candle candle3">
+            <div class="flame"></div>
+        </div>
+        <div class="candle candle4">
+            <div class="flame"></div>
+        </div>
+        <div class="candle candle5">
+            <div class="flame"></div>
+        </div>
+        <div class="top-cake"></div>
+        <div class="bottom-cake"></div>
+        <div class="name">
+            MARY
+        </div>
+    </div>
+    <div class="message">
+        Wishing you the happiest birthday ever ♡
+    </div>
+    <button id="musicBtn">
+        ♫ Play Music ♫
+    </button>
+</div>
+<script>
+/* HAPPY BIRTHDAY */
+const text = "HAPPY BIRTHDAY";
+let i = 0;
+function typeText() {
+    if (i < text.length) {
+        document.getElementById("title").innerHTML +=
+            text.charAt(i);
+        i++;
+        setTimeout(typeText, 150);
+    }
+}
+typeText();
+/* الموسيقى نفسها */
+let audioContext;
+let playing = false;
+let notesTimer;
+const melody = [
+    261.63,
+    261.63,
+    293.66,
+    261.63,
+    349.23,
+    329.63,
+    261.63,
+    261.63,
+    293.66,
+    261.63,
+    392.00,
+    349.23,
+    261.63,
+    261.63,
+    523.25,
+    440.00,
+    349.23,
+    329.63,
+    293.66,
+    466.16,
+    466.16,
+    440.00,
+    349.23,
+    392.00,
+    349.23
+];
+let noteIndex = 0;
+function playNote() {
+    if (!playing) return;
+    const oscillator =
+        audioContext.createOscillator();
+    const gain =
+        audioContext.createGain();
+    oscillator.type = "sine";
+    oscillator.frequency.value =
+        melody[noteIndex];
+    gain.gain.setValueAtTime(
+        0.001,
+        audioContext.currentTime
+    );
+    gain.gain.exponentialRampToValueAtTime(
+        0.15,
+        audioContext.currentTime + 0.03
+    );
+    gain.gain.exponentialRampToValueAtTime(
+        0.001,
+        audioContext.currentTime + 0.45
+    );
+    oscillator.connect(gain);
+    gain.connect(audioContext.destination);
+    oscillator.start();
+    oscillator.stop(
+        audioContext.currentTime + 0.5
+    );
+    noteIndex++;
+    if (noteIndex >= melody.length) {
+        noteIndex = 0;
+    }
+    notesTimer =
+        setTimeout(playNote, 500);
+}
+/* زر الموسيقى */
+document
+.getElementById("musicBtn")
+.addEventListener("click", function() {
+    if (!playing) {
+        audioContext =
+            new (window.AudioContext ||
+            window.webkitAudioContext)();
+        playing = true;
+        this.innerHTML =
+            "♫ Pause Music ♫";
+        playNote();
+    } else {
+        playing = false;
+        clearTimeout(notesTimer);
+        this.innerHTML =
+            "♫ Play Music ♫";
+    }
+});
+</script>
+</body>
+</html>
